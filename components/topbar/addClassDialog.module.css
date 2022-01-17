@@ -1,0 +1,9 @@
+.container {
+    width: auto;
+    padding: 10px;
+}
+
+.textField {
+    width: 400px;
+    margin-bottom: 20px;
+}

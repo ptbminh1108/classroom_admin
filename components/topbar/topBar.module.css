@@ -1,0 +1,27 @@
+.topbarWrapper {
+    position: fixed;
+    top: 0;
+}
+
+.topbar {
+    height: 100px;
+}
+
+.ClassVipPro {
+    font-family: cursive;
+    font-weight: bold;
+    color: red;
+    font-size: 35px;
+}
+
+.topBarItem {
+    display: flex;
+    align-items: center;
+}
+
+.topBarContainer {
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}

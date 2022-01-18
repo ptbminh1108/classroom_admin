@@ -88,7 +88,7 @@ export default function TopBar({ handleAddClass }) {
             </Grid>
             <Grid item xs className={topBarStyle.topBarItem}>
               <Link href="/admin">
-                <a className={topBarStyle.ClassVipPro}>Class Vip Pro</a>
+                <a className={topBarStyle.ClassVipPro}>Classroom Admin Page</a>
               </Link>
             </Grid>
             

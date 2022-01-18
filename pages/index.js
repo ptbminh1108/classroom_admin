@@ -19,15 +19,10 @@ export default function Home() {
   }
  
 
-  // const isLogin = checkaccessToken();
-  useLayoutEffect(() => {
+  // const isLogin = checkasm_accesstoken();
+  const access_token = Cookie.get("asm_accesstoken");
 
-    Cookie.set("prePath", "/classroom");
-
-    if (!Cookie.get("accesstoken")) {
-      router.push("/login");
-    }
-  }, []);
+  const isLogin = checkaccessToken();
 
   return (
     <div className={styles.container}>

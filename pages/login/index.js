@@ -41,8 +41,8 @@ export default function Login() {
 
   const [error, setError] = useState("");
 
-  const access_token = Cookie.get("accesstoken");
-  console.log("access token ", access_token);
+  const access_token = Cookie.get("asm_accesstoken");
+  
   if (access_token !== undefined) {
     router.push("/");
   }
@@ -65,7 +65,7 @@ export default function Login() {
           let data = res.data;
           if (data.access_token) {
             Cookie.set("user", JSON.stringify(res.data.user));
-            Cookie.set("accesstoken", res.data.access_token);
+            Cookie.set("asm_accesstoken", res.data.access_token);
 
             console.log(res.data.access_token);
 

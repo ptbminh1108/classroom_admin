@@ -95,13 +95,13 @@ export default function Class() {
 
     useLayoutEffect(() => {
         Cookie.set("prePath", "/classroom");
-        if (!Cookie.get("accesstoken")) {
+        if (!Cookie.get("asm_accesstoken")) {
             router.push("/login");
         } else {
 
             setUser(JSON.parse(Cookie.get("user")));
 
-            const access_token = "Bearer " + Cookie.get("accesstoken");
+            const access_token = "Bearer " + Cookie.get("asm_accesstoken");
             const headers = { authorization: access_token };
 
             axiosApiCall("system-admin/view-classroom-list/", "get", headers, {})
@@ -141,7 +141,7 @@ export default function Class() {
                     if (data.success) {
 
                         Cookie.set("user", JSON.stringify(res.data.user));
-                        Cookie.set("accesstoken", res.data.access_token);
+                        Cookie.set("asm_accesstoken", res.data.access_token);
 
                         console.log(res.data.access_token);
 

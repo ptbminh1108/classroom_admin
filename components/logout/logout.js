@@ -20,7 +20,7 @@ export default function Logout() {
 
   const handleLogout = () => {
 
-    const access_token = Cookie.get("accesstoken");
+    const access_token = Cookie.get("asm_accesstoken");
     const headers = {authorization : `bearer ${access_token}`}
     console.log(access_token);
     axiosApiCall("auth/logout", "get", { access_token } , headers ).then((res) => {
@@ -33,8 +33,8 @@ export default function Logout() {
       }
     });
 
-    // remove accessToken
-    Cookie.remove("accesstoken");
+    // remove asm_accesstoken
+    Cookie.remove("asm_accesstoken");
     Cookie.remove("user");
     router.push("/login");
   };

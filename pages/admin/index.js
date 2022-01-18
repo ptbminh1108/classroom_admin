@@ -26,6 +26,8 @@ import Layout from "../../components/layout";
 import TopBar from "../../components/topbar/topBar";
 import { useRouter } from "next/router";
 
+
+
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -94,13 +96,13 @@ export default function Admin() {
     useLayoutEffect(() => {
 
         Cookie.set("prePath", "/classroom");
-        if (!Cookie.get("accesstoken")) {
+        if (!Cookie.get("asm_accesstoken")) {
             router.push("/login");
         } else {
 
             setUser(JSON.parse(Cookie.get("user")));
 
-            const access_token = "Bearer " + Cookie.get("accesstoken");
+            const access_token = "Bearer " + Cookie.get("asm_accesstoken");
             const headers = { authorization: access_token };
 
             axiosApiCall("system-admin/view-admin-list", "get", headers, {})
@@ -178,7 +180,7 @@ export default function Admin() {
         }
 
         if (check === true) {
-            const access_token = "Bearer " + Cookie.get("accesstoken");
+            const access_token = "Bearer " + Cookie.get("asm_accesstoken");
             const headers = { authorization: access_token };
 
             axiosApiCall("system-admin/create-admin-account", "post", headers, postData)

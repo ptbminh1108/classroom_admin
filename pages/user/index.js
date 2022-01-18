@@ -146,13 +146,13 @@ export default function User() {
     }
     useLayoutEffect(() => {
         Cookie.set("prePath", "/user");
-        if (!Cookie.get("accesstoken")) {
+        if (!Cookie.get("asm_accesstoken")) {
             router.push("/login");
         } else {
 
             setUser(JSON.parse(Cookie.get("user")));
 
-            const access_token = "Bearer " + Cookie.get("accesstoken");
+            const access_token = "Bearer " + Cookie.get("asm_accesstoken");
             const headers = { authorization: access_token };
 
             axiosApiCall("system-admin/view-user-list", "GET", headers, {})
@@ -197,7 +197,7 @@ export default function User() {
 
     const handleClickLock = (id, status) => {
 
-        const access_token = "Bearer " + Cookie.get("accesstoken");
+        const access_token = "Bearer " + Cookie.get("asm_accesstoken");
         const headers = { authorization: access_token };
 
         const dataPost = {
@@ -260,7 +260,7 @@ export default function User() {
         }
 
         if (check === true) {
-            const access_token = "Bearer " + Cookie.get("accesstoken");
+            const access_token = "Bearer " + Cookie.get("asm_accesstoken");
             const headers = { authorization: access_token };
 
             axiosApiCall("system-admin/mapping-user-code", "post", headers, postData)

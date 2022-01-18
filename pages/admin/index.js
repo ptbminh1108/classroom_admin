@@ -183,7 +183,7 @@ export default function Admin() {
             const access_token = "Bearer " + Cookie.get("asm_accesstoken");
             const headers = { authorization: access_token };
 
-            axiosApiCall("system-admin/create-admin-account", "post", headers, postData)
+            axiosApiCall("system-admin/register", "post", headers, postData)
                 .then((res) => {
                     let data = res.data;
                     console.log(data);
